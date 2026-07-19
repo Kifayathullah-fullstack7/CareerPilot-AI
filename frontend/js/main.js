@@ -1,9 +1,8 @@
 // js/main.js
 
-window.API_BASE_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
-    ? "http://127.0.0.1:5000"
-    : localStorage.getItem("custom_api_base_url") || "https://careerpilot-backend.onrender.com";
-
+// Backend API URL
+const API_BASE_URL = "https://careerpilot-ai-lpt8.onrender.com";
+window.API_BASE_URL = API_BASE_URL;
 
 // Global Toast Notification
 const toast = (message, type = 'info') => {
@@ -33,7 +32,6 @@ function createToastContainer() {
     document.body.appendChild(container);
     return container;
 }
-
 // Global Loading Spinner
 const showLoader = () => {
     const loader = document.createElement('div');
