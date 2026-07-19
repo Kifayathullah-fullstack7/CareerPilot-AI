@@ -1,0 +1,126 @@
+/* css/dashboard.css */
+
+.welcome {
+    margin-bottom: 2.5rem;
+}
+
+.stats-grid {
+    margin-bottom: 2.5rem;
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--accent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.stat-icon.green {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.stat-icon.purple {
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--secondary);
+}
+
+.stat-details h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    line-height: 1;
+}
+
+.stat-details p {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 0.8fr;
+    gap: 2rem;
+}
+
+@media (max-width: 992px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.recent-resumes {
+    min-height: 350px;
+}
+
+.simple-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.simple-table th, 
+.simple-table td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.simple-table th {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.simple-table tr:last-child td {
+    border-bottom: none;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 1.5rem;
+}
+
+.btn-action {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.02);
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.btn-action:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--primary);
+    transform: translateX(4px);
+}
+
+.btn-action i {
+    font-size: 20px;
+    color: var(--accent);
+}

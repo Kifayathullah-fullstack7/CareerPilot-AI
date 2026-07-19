@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result | CareerPilot AI</title>
+   <link rel="stylesheet" href="../css/style.css?v=1.6">
+    <link rel="stylesheet" href="../css/result.css?v=1.5">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <main class="main-content full-width">
+            <div class="result-header flex-between">
+                <div style="display:flex; align-items:center; gap: 15px;">
+                    <a href="dashboard.html" class="btn btn-outline no-print" style="padding: 10px 15px; height:auto; display:inline-flex; align-items:center; justify-content:center;"><i class="fas fa-arrow-left"></i></a>
+                    <h1>Analysis Results</h1>
+                </div>
+                <div class="result-actions">
+                    <button class="btn btn-outline" id="download-btn"><i class="fas fa-download"></i> Download PDF</button>
+                    <a href="upload.html" class="btn btn-primary">Try Another</a>
+                </div>
+            </div>
+
+            <div class="grid-3 mt-2">
+                <!-- ATS Score -->
+                <div class="glass-card score-card text-center">
+                    <h3>ATS Score</h3>
+                    <div class="circular-progress">
+                        <svg width="150" height="150">
+                            <circle cx="75" cy="75" r="65" stroke-linecap="round"></circle>
+                        </svg>
+                        <div class="percentage" id="ats-score-pct">0%</div>
+                    </div>
+                    <p class="status-good" id="ats-status">Calculating...</p>
+                </div>
+
+                <!-- Job Match -->
+                <div class="glass-card match-card">
+                    <h3>Job Match Rate</h3>
+                    <!-- JS inserts items here -->
+                </div>
+
+                <!-- AI Quick Feedback -->
+                <div class="glass-card ai-summary">
+                    <h3>AI Summary</h3>
+                    <p id="ai-feedback-text">"Analyzing your resume content..."</p>
+                </div>
+            </div>
+
+            <div class="grid-2 mt-2">
+                <!-- Skills Chips -->
+                <div class="glass-card">
+                    <h3>Skills Found</h3>
+                    <div class="chip-container mt-1" id="skills-found">
+                        <!-- JS inserts chips here -->
+                    </div>
+                    <h3 class="mt-2">Missing Skills</h3>
+                    <div class="chip-container mt-1" id="skills-missing">
+                        <!-- JS inserts chips here -->
+                    </div>
+                </div>
+
+                <!-- Learning -->
+                <div class="glass-card">
+                    <h3>Recommended Learning</h3>
+                    <div class="video-list mt-1" id="video-recommendations">
+                        <!-- JS inserts videos here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../js/main.js?v=1.9"></script>
+    <script src="../js/result.js?v=1.9"></script>
+</body>
+</html>

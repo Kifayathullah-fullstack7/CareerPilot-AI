@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | CareerPilot AI</title>
+    <link rel="stylesheet" href="../css/style.css?v=1.6">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-card">
+            <div class="logo">
+                <i class="fas fa-paper-plane"></i>
+                CareerPilot
+            </div>
+            <nav class="side-nav">
+                <a href="dashboard.html">
+                    <i class="fas fa-th-large"></i>
+                    Dashboard
+                </a>
+                <a href="upload.html">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    Upload Resume
+                </a>
+                <a href="history.html">
+                    <i class="fas fa-history"></i>
+                    History
+                </a>
+                <a href="profile.html" class="active">
+                    <i class="fas fa-user"></i>
+                    Profile
+                </a>
+                <a href="settings.html">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="btn btn-outline btn-block" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="glass-card profile-card" style="max-width: 600px; margin: 0 auto;">
+                <div class="profile-header" style="display:flex; align-items:center; gap:20px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom: 20px;">
+                    <div class="avatar-large" id="profile-avatar" style="width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg, var(--primary), var(--secondary)); display:flex; justify-content:center; align-items:center; font-size:24px; font-weight:700;">
+                        U
+                    </div>
+                    <div>
+                        <h2 id="profile-name">User Name</h2>
+                        <p class="text-muted" id="profile-joined">Member since ...</p>
+                    </div>
+                </div>
+                
+                <div class="profile-details mt-2" style="display:flex; flex-direction:column; gap:15px; margin-top:20px;">
+                    <div class="detail-row" style="display:flex; flex-direction:column;">
+                        <label style="color:var(--text-muted); font-size:12px; margin-bottom:5px;">Email Address</label>
+                        <p id="profile-email" style="font-size:16px; font-weight:500;">...</p>
+                    </div>
+                    <div class="detail-row" style="display:flex; flex-direction:column;">
+                        <label style="color:var(--text-muted); font-size:12px; margin-bottom:5px;">Total Resumes Uploaded</label>
+                        <p id="profile-uploads" style="font-size:16px; font-weight:500;">0 Total</p>
+                    </div>
+                    <div class="detail-row" style="display:flex; flex-direction:column;">
+                        <label style="color:var(--text-muted); font-size:12px; margin-bottom:5px;">Average ATS Score</label>
+                        <p id="profile-average-score" style="font-size:16px; font-weight:500;">0%</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="../js/main.js?v=1.9"></script>
+    <script src="../js/profile.js?v=1.9"></script>
+</body>
+</html>

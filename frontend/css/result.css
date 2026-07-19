@@ -1,0 +1,242 @@
+/* css/result.css */
+
+.result-header {
+    margin-bottom: 2rem;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Score Card / Circular Progress */
+.score-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.circular-progress {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 1.5rem auto;
+}
+
+.circular-progress svg {
+    width: 150px;
+    height: 150px;
+    transform: rotate(-90deg);
+}
+
+.circular-progress circle {
+    fill: none;
+    stroke: var(--primary);
+    stroke-width: 10px;
+    stroke-dasharray: 408; /* 2 * pi * r (r=65) */
+    stroke-dashoffset: 408;
+    transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.circular-progress .percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+}
+
+.status-good {
+    color: var(--success);
+    font-weight: 600;
+}
+
+.status-warning {
+    color: #F59E0B;
+    font-weight: 600;
+}
+
+.status-bad {
+    color: var(--danger);
+    font-weight: 600;
+}
+
+/* Match Items */
+.match-item {
+    margin-bottom: 1.5rem;
+}
+
+.match-item label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.match-item .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.25rem;
+}
+
+.match-item .bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+}
+
+.match-item span {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* AI Summary */
+.ai-summary p {
+    font-style: italic;
+    color: var(--text-white);
+    line-height: 1.8;
+}
+
+/* Chips (Skills) */
+.chip-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chip {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.chip-success {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--success);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.chip-danger {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--danger);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Recommended Learning Videos */
+.video-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.video-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+}
+
+.video-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateX(4px);
+}
+
+.video-item i {
+    font-size: 28px;
+    color: var(--danger);
+}
+
+.video-item p {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-white);
+}
+
+.small-link {
+    background: none;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0;
+    margin-top: 4px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.small-link:hover {
+    text-decoration: underline;
+}
+
+.full-width {
+    margin-left: 0 !important;
+    padding: 3rem 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+    .grid-3, .grid-2 {
+        grid-template-columns: 1fr;
+    }
+    .full-width {
+        padding: 1.5rem;
+    }
+}
+
+@media print {
+    .result-actions, .navbar, .sidebar, .no-print {
+        display: none !important;
+    }
+    .main-content {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    body {
+        background: #0F172A !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}

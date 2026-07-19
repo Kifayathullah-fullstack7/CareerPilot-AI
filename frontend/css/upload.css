@@ -1,0 +1,178 @@
+/* css/upload.css */
+
+.upload-page{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.upload-wrapper{
+
+    width:100%;
+    max-width:850px;
+
+}
+
+.upload-card{
+
+    text-align:center;
+
+}
+
+.upload-card h2{
+
+    margin-bottom:10px;
+
+}
+
+.upload-card p{
+
+    color:var(--text-muted);
+
+    margin-bottom:30px;
+
+}
+
+.upload-box{
+
+    border:2px dashed rgba(255,255,255,.15);
+
+    border-radius:18px;
+
+    padding:60px 30px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.upload-box:hover{
+
+    border-color:var(--primary);
+
+    background:rgba(37,99,235,.08);
+
+}
+
+.upload-box i{
+
+    font-size:70px;
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+}
+
+.upload-box h3{
+
+    margin-bottom:10px;
+
+}
+
+.upload-box p{
+
+    color:var(--text-muted);
+
+}
+
+.upload-box input{
+
+    display:none;
+
+}
+
+.supported{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-top:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.file-chip{
+
+    padding:8px 15px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.08);
+
+    font-size:14px;
+
+}
+
+.progress-container{
+
+    width:100%;
+
+    height:10px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    margin-top:25px;
+
+    overflow:hidden;
+
+    display:none;
+
+}
+
+.progress-bar{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
+
+    transition:width .3s;
+
+}
+
+.upload-info{
+
+    margin-top:25px;
+
+    color:var(--text-muted);
+
+}
+
+.upload-btn{
+
+    margin-top:30px;
+
+    width:100%;
+
+}
+
+@media(max-width:768px){
+
+.upload-box{
+
+padding:40px 20px;
+
+}
+
+.upload-box i{
+
+font-size:50px;
+
+}
+
+}

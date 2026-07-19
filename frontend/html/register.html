@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | CareerPilot AI</title>
+
+    <link rel="stylesheet" href="../css/style.css?v=1.6">
+    <link rel="stylesheet" href="../css/register.css?v=1.3">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+<div class="register-container">
+
+    <div class="register-left">
+
+        <div class="brand">
+            <i class="fas fa-paper-plane"></i>
+            <h2>CareerPilot AI</h2>
+        </div>
+
+        <h1>Create your account</h1>
+
+        <p>
+            Join thousands of professionals improving their resumes with AI-powered ATS analysis and job matching.
+        </p>
+
+        <div class="features">
+
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                AI Resume Analysis
+            </div>
+
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                ATS Score
+            </div>
+
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                Job Match Prediction
+            </div>
+
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                Learning Recommendations
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="register-right">
+
+        <div class="glass-card register-card">
+
+            <h2>Create Account</h2>
+
+            <form id="registerForm">
+
+                <div class="input-group">
+
+                    <label>Full Name</label>
+
+                    <div class="input-box">
+                        <i class="fas fa-user"></i>
+                        <input
+                            type="text"
+                            id="fullname"
+                            placeholder="Enter your full name"
+                            required>
+                    </div>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Email</label>
+
+                    <div class="input-box">
+                        <i class="fas fa-envelope"></i>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter email"
+                            required>
+                    </div>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Password</label>
+
+                    <div class="input-box">
+                        <i class="fas fa-lock"></i>
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Create password"
+                            required>
+                    </div>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Confirm Password</label>
+
+                    <div class="input-box">
+                        <i class="fas fa-lock"></i>
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm password"
+                            required>
+                    </div>
+
+                </div>
+
+                <button class="btn btn-primary register-btn" type="submit">
+                    <i class="fas fa-user-plus"></i>
+                    Create Account
+                </button>
+
+            </form>
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+            <button type="button" class="google-btn" onclick="loginWithGoogle()">
+                <i class="fab fa-google"></i>
+                Continue with Google
+            </button>
+
+            <p class="login-link">
+                Already have an account?
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../js/main.js?v=1.7"></script>
+<script src="../js/register.js?v=1.7"></script>
+
+</body>
+</html>

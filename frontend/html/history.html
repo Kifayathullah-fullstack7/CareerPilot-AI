@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis History | CareerPilot AI</title>
+    <link rel="stylesheet" href="../css/style.css?v=1.6">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-card">
+            <div class="logo">
+                <i class="fas fa-paper-plane"></i>
+                CareerPilot
+            </div>
+            <nav class="side-nav">
+                <a href="dashboard.html">
+                    <i class="fas fa-th-large"></i>
+                    Dashboard
+                </a>
+                <a href="upload.html">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    Upload Resume
+                </a>
+                <a href="history.html" class="active">
+                    <i class="fas fa-history"></i>
+                    History
+                </a>
+                <a href="profile.html">
+                    <i class="fas fa-user"></i>
+                    Profile
+                </a>
+                <a href="settings.html">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="btn btn-outline btn-block" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="glass-card">
+                <div class="flex-between mb-2" style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2rem;">
+                    <h2>Resume History</h2>
+                </div>
+                
+                <table class="simple-table" style="width:100%; border-collapse:collapse; margin-top:1rem; text-align:left;">
+                    <thead>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); height:40px;">
+                            <th>Filename</th>
+                            <th>ATS Score</th>
+                            <th>Job Match</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-list">
+                        <!-- JS dynamically inserts rows here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    
+    <script src="../js/main.js?v=1.9"></script>
+    <script src="../js/history.js?v=1.9"></script>
+</body>
+</html>

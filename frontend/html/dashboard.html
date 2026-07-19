@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | CareerPilot AI</title>
+
+    <link rel="stylesheet" href="../css/style.css?v=1.6">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar glass-card">
+
+        <div class="logo">
+            <i class="fas fa-paper-plane"></i>
+            CareerPilot
+        </div>
+
+        <nav class="side-nav">
+
+            <a href="dashboard.html" class="active">
+                <i class="fas fa-th-large"></i>
+                Dashboard
+            </a>
+
+            <a href="upload.html">
+                <i class="fas fa-cloud-upload-alt"></i>
+                Upload Resume
+            </a>
+
+            <a href="history.html">
+                <i class="fas fa-history"></i>
+                History
+            </a>
+
+            <a href="profile.html">
+                <i class="fas fa-user"></i>
+                Profile
+            </a>
+
+            <a href="settings.html">
+                <i class="fas fa-cog"></i>
+                Settings
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+
+            <button class="btn btn-outline btn-block" onclick="logout()">
+
+                <i class="fas fa-sign-out-alt"></i>
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <header class="top-bar">
+
+            <div class="welcome">
+
+                <h2>
+                    Good Morning,
+                    <span id="user-name">User</span>!
+                </h2>
+
+                <p class="text-muted">
+                    Here's what's happening with your career today.
+                </p>
+
+            </div>
+
+            <div class="actions">
+
+                <a href="upload.html" class="btn btn-primary">
+
+                    <i class="fas fa-plus"></i>
+
+                    New Analysis
+
+                </a>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- Statistics -->
+
+        <div class="stats-grid grid-4 mt-2">
+
+            <div class="glass-card stat-card">
+
+                <p>Avg. Resume Score</p>
+
+                <h3 id="avg-score">0%</h3>
+
+                <div class="progress-mini">
+
+                    <div class="bar"
+                        id="score-bar"
+                        style="width:0%"></div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="glass-card stat-card">
+
+                <p>Job Matches</p>
+
+                <h3 id="job-match-count">0</h3>
+
+                <span class="trend up">
+
+                    Latest Analysis
+
+                </span>
+
+            </div>
+
+
+
+            <div class="glass-card stat-card">
+
+                <p>Total Uploads</p>
+
+                <h3 id="upload-count">0</h3>
+
+            </div>
+
+
+
+            <div class="glass-card stat-card">
+
+                <p>Learning Points</p>
+
+                <h3 id="learning-points">0</h3>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Dashboard Grid -->
+
+        <div class="dashboard-grid mt-2">
+
+            <!-- Recent Resume -->
+
+            <div class="glass-card activity-card">
+
+                <div class="flex-between mb-2">
+
+                    <h3>Recent Resume Analysis</h3>
+
+                    <a href="history.html" class="small-link">
+
+                        View All
+
+                    </a>
+
+                </div>
+
+                <table class="simple-table">
+
+                    <thead>
+
+                    <tr>
+
+                        <th>Resume</th>
+
+                        <th>Score</th>
+
+                        <th>Date</th>
+
+                    </tr>
+
+                    </thead>
+
+                    <tbody id="recent-list">
+
+                        <!-- JS inserts rows here -->
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+
+            <!-- Quick Actions -->
+
+            <div class="glass-card quick-actions">
+
+                <h3>Quick Actions</h3>
+
+                <div class="action-buttons">
+
+                    <button class="btn-action"
+                        onclick="location.href='upload.html'">
+
+                        <i class="fas fa-cloud-upload-alt"></i>
+
+                        Upload Resume
+
+                    </button>
+
+
+
+                    <button class="btn-action"
+                        onclick="location.href='result.html'">
+
+                        <i class="fas fa-lightbulb"></i>
+
+                        AI Suggestions
+
+                    </button>
+
+
+
+                    <button class="btn-action"
+                        onclick="location.href='history.html'">
+
+                        <i class="fas fa-history"></i>
+
+                        Resume History
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+<script src="../js/main.js?v=1.9"></script>
+<script src="../js/dashboard.js?v=1.9"></script>
+</body>
+</html>
