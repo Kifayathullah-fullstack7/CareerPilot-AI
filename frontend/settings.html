@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings | CareerPilot AI</title>
-    <link rel="stylesheet" href="css/style.css?v=1.8">
+    <link rel="stylesheet" href="css/style.css?v=1.9">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .settings-section {
@@ -134,7 +134,7 @@
                             <span class="small text-muted">Toggle the dark/light theme</span>
                         </div>
                         <label class="switch">
-                            <input type="checkbox" checked disabled>
+                            <input type="checkbox" id="dark-mode-toggle" checked>
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -162,23 +162,22 @@
         </main>
     </div>
     
-    <script src="js/main.js?v=2.0"></script>
+    <script src="js/main.js?v=2.1"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            // --- API URL Setting ---
             const apiInput = document.getElementById("api-url-input");
             const saveBtn = document.getElementById("save-api-url");
-            
-            // Load current saved API base URL
+
             const savedUrl = localStorage.getItem("custom_api_base_url") || "";
             apiInput.value = savedUrl;
-            
+
             saveBtn.addEventListener("click", () => {
                 const urlVal = apiInput.value.trim();
                 if (urlVal === "") {
                     localStorage.removeItem("custom_api_base_url");
                     toast("Backend API URL reset to default.", "success");
                 } else {
-                    // Simple URL validation
                     if (!urlVal.startsWith("http://") && !urlVal.startsWith("https://")) {
                         toast("API URL must start with http:// or https://", "error");
                         return;
@@ -186,9 +185,31 @@
                     localStorage.setItem("custom_api_base_url", urlVal);
                     toast("Backend API URL updated successfully!", "success");
                 }
-                setTimeout(() => {
-                    window.location.reload();
-                }, 1000);
+                setTimeout(() => { window.location.reload(); }, 1000);
+            });
+
+            // --- Dark Mode Toggle ---
+            const darkToggle = document.getElementById("dark-mode-toggle");
+            const savedTheme = localStorage.getItem("theme") || "dark";
+
+            // Apply saved theme on load
+            if (savedTheme === "light") {
+                document.body.classList.add("light-mode");
+                darkToggle.checked = false;
+            } else {
+                darkToggle.checked = true;
+            }
+
+            darkToggle.addEventListener("change", () => {
+                if (darkToggle.checked) {
+                    document.body.classList.remove("light-mode");
+                    localStorage.setItem("theme", "dark");
+                    toast("Dark mode enabled", "success");
+                } else {
+                    document.body.classList.add("light-mode");
+                    localStorage.setItem("theme", "light");
+                    toast("Light mode enabled", "success");
+                }
             });
         });
     </script>

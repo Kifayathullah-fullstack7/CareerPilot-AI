@@ -1,5 +1,13 @@
 // js/main.js
 
+// Apply saved theme immediately to prevent flash of wrong theme
+(function() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+    }
+})();
+
 // Backend API URL
 const API_BASE_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:"
     ? "http://127.0.0.1:5000"
