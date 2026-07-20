@@ -191,13 +191,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <div style="width: 32px;"></div> <!-- visual spacing balance -->
         `;
         
-        // Insert at the top of the app container
-        const appContainer = document.querySelector('.app-container');
-        if (appContainer) {
-            appContainer.insertBefore(mobileHeader, appContainer.firstChild);
-        } else {
-            document.body.insertBefore(mobileHeader, document.body.firstChild);
-        }
+        // Insert at the TOP of body so it's always above everything
+        document.body.insertBefore(mobileHeader, document.body.firstChild);
         
         const sidebarToggle = document.getElementById('sidebar-toggle');
         if (sidebarToggle) {

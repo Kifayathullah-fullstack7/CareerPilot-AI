@@ -123,12 +123,18 @@ body {
     padding: 2rem;
     margin-left: 260px; /* Width of sidebar */
     transition: var(--transition);
+    min-width: 0; /* prevent flex overflow */
 }
 
 @media (max-width: 992px) {
+    /* Switch app-container to full-width column so mobile header stacks on top */
+    .app-container {
+        flex-direction: column;
+    }
     .main-content {
-        margin-left: 0;
+        margin-left: 0 !important;
         padding: 1rem;
+        width: 100%;
     }
 }
 
@@ -684,7 +690,13 @@ body {
 
 /* Dashboard Sidebar Drawer for Mobile & Tablet */
 @media (max-width: 992px) {
+    /* Sidebar becomes a fixed overlay drawer, slides in from left */
     .sidebar {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 260px;
         transform: translateX(-100%);
         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 2000;
@@ -707,7 +719,7 @@ body {
         align-items: center;
         justify-content: space-between;
         padding: 12px 20px;
-        background: rgba(15, 23, 42, 0.9);
+        background: rgba(15, 23, 42, 0.95);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border-bottom: 1px solid var(--glass-border);
@@ -715,6 +727,9 @@ body {
         top: 0;
         z-index: 1500;
         width: 100%;
+        /* Must be a block-level element above main content */
+        order: -1;
+        flex-shrink: 0;
     }
     
     .sidebar-toggle-btn {
@@ -727,6 +742,8 @@ body {
         align-items: center;
         justify-content: center;
         padding: 5px;
+        min-width: 36px;
+        min-height: 36px;
     }
     
     .mobile-logo {
@@ -744,10 +761,6 @@ body {
     
     .mobile-logo i {
         color: var(--primary);
-    }
-    
-    .main-content {
-        padding: 1.5rem;
     }
 }
 
