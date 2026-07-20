@@ -158,3 +158,12 @@ body.auth-page {
 .link:hover {
     text-decoration: underline;
 }
+
+@media (max-width: 480px) {
+    body.auth-page {
+        padding: 10px;
+    }
+    .auth-card.glass-card {
+        padding: 1.5rem;
+    }
+}

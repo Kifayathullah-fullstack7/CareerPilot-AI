@@ -139,6 +139,17 @@
                         </label>
                     </div>
                 </div>
+                <div class="settings-section mt-2">
+                    <h3>Backend Configuration</h3>
+                    <div class="setting-item" style="display: block;">
+                        <p style="margin-bottom: 8px;">Backend API URL</p>
+                        <span class="small text-muted" style="display: block; margin-bottom: 12px;">Set your deployed Flask backend URL (e.g. on Render). Leave blank to use default.</span>
+                        <div class="api-config-flex" style="display: flex; gap: 10px; align-items: center;">
+                            <input type="text" id="api-url-input" style="flex: 1; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.05); color: white; outline: none; font-size: 14px;" placeholder="https://your-backend.onrender.com">
+                            <button class="btn btn-primary" id="save-api-url" style="padding: 10px 20px; font-size: 14px; height: auto;">Save</button>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="settings-section mt-2 danger-zone" style="border:none;">
                     <h3 class="text-danger">Danger Zone</h3>
@@ -152,5 +163,34 @@
     </div>
     
     <script src="js/main.js?v=1.9"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const apiInput = document.getElementById("api-url-input");
+            const saveBtn = document.getElementById("save-api-url");
+            
+            // Load current saved API base URL
+            const savedUrl = localStorage.getItem("custom_api_base_url") || "";
+            apiInput.value = savedUrl;
+            
+            saveBtn.addEventListener("click", () => {
+                const urlVal = apiInput.value.trim();
+                if (urlVal === "") {
+                    localStorage.removeItem("custom_api_base_url");
+                    toast("Backend API URL reset to default.", "success");
+                } else {
+                    // Simple URL validation
+                    if (!urlVal.startsWith("http://") && !urlVal.startsWith("https://")) {
+                        toast("API URL must start with http:// or https://", "error");
+                        return;
+                    }
+                    localStorage.setItem("custom_api_base_url", urlVal);
+                    toast("Backend API URL updated successfully!", "success");
+                }
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            });
+        });
+    </script>
 </body>
 </html>

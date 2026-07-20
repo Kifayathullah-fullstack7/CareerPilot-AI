@@ -1,7 +1,9 @@
 // js/main.js
 
 // Backend API URL
-const API_BASE_URL = "https://careerpilot-ai-lpt8.onrender.com";
+const API_BASE_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:"
+    ? "http://127.0.0.1:5000"
+    : localStorage.getItem("custom_api_base_url") || "https://careerpilot-ai-lpt8.onrender.com";
 window.API_BASE_URL = API_BASE_URL;
 
 // Global Toast Notification
@@ -132,3 +134,87 @@ window.logout = function() {
     localStorage.removeItem("user");
     window.location.href = "login.html";
 };
+
+// ==========================================================
+// Responsive Navigation & Interactions (Mobile/Tablet)
+// ==========================================================
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Landing Page Navbar Toggler
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('nav-open');
+            const icon = navToggle.querySelector('i');
+            if (icon) {
+                if (navLinks.classList.contains('nav-open')) {
+                    icon.className = 'fas fa-times';
+                } else {
+                    icon.className = 'fas fa-bars';
+                }
+            }
+        });
+        
+        // Close nav links when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('nav-open') && !navLinks.contains(e.target) && e.target !== navToggle && !navToggle.contains(e.target)) {
+                navLinks.classList.remove('nav-open');
+                const icon = navToggle.querySelector('i');
+                if (icon) icon.className = 'fas fa-bars';
+            }
+        });
+    }
+
+    // 2. Dynamic Mobile App Header & Sidebar Drawer Toggling
+    const mainContent = document.querySelector('.main-content');
+    const sidebar = document.querySelector('.sidebar');
+    
+    // Only apply on pages where sidebar is present and it is a dashboard page (not landing)
+    if (sidebar && mainContent) {
+        // Create mobile header dynamically
+        const mobileHeader = document.createElement('div');
+        mobileHeader.className = 'mobile-app-header no-print';
+        mobileHeader.innerHTML = `
+            <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Toggle Sidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="mobile-logo">
+                <i class="fas fa-paper-plane"></i> CareerPilot <span>AI</span>
+            </div>
+            <div style="width: 32px;"></div> <!-- visual spacing balance -->
+        `;
+        
+        // Insert at the top of the app container
+        const appContainer = document.querySelector('.app-container');
+        if (appContainer) {
+            appContainer.insertBefore(mobileHeader, appContainer.firstChild);
+        } else {
+            document.body.insertBefore(mobileHeader, document.body.firstChild);
+        }
+        
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                sidebar.classList.toggle('sidebar-open');
+            });
+        }
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('sidebar-open') && !sidebar.contains(e.target) && sidebarToggle && !sidebarToggle.contains(e.target) && !mobileHeader.contains(e.target)) {
+                sidebar.classList.remove('sidebar-open');
+            }
+        });
+        
+        // Close sidebar on navigation links clicked inside drawer
+        const sidebarLinks = sidebar.querySelectorAll('a, button');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                sidebar.classList.remove('sidebar-open');
+            });
+        });
+    }
+});

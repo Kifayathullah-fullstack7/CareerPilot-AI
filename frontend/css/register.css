@@ -160,3 +160,18 @@ align-items:center;
 }
 
 }
+
+@media(max-width:768px){
+    body {
+        padding: 20px;
+    }
+    .register-container {
+        gap: 30px;
+    }
+    .register-left h1 {
+        font-size: 32px;
+    }
+    .register-card.glass-card {
+        padding: 1.5rem;
+    }
+}
