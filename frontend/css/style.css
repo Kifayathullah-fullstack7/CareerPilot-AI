@@ -784,7 +784,7 @@ body {
     margin-top: 0 !important;
 }
 
-/* Profile and Settings Page Responsiveness */
+/* Profile, Settings, and Upload Page Responsiveness */
 @media (max-width: 576px) {
     .profile-header {
         flex-direction: column !important;
@@ -793,6 +793,9 @@ body {
     }
     .profile-header .avatar-large {
         margin: 0 auto;
+    }
+    .profile-card.glass-card {
+        padding: 1.5rem 1rem !important;
     }
     .api-config-flex {
         flex-direction: column !important;
@@ -805,4 +808,50 @@ body {
         width: 100% !important;
         justify-content: center;
     }
+    .setting-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .setting-item label.switch {
+        align-self: flex-start;
+        margin-top: 4px;
+    }
+}
+
+/* Sidebar Backdrop Blur for Mobile Drawer */
+.sidebar-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+@media (max-width: 992px) {
+    .sidebar-backdrop.active {
+        display: block;
+        opacity: 1;
+    }
+}
+
+/* Features List Styling (Upload Page) */
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--text-white);
 }

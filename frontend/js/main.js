@@ -173,6 +173,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Only apply on pages where sidebar is present and it is a dashboard page (not landing)
     if (sidebar && mainContent) {
+        // Create backdrop overlay dynamically
+        const backdrop = document.createElement('div');
+        backdrop.className = 'sidebar-backdrop no-print';
+        document.body.appendChild(backdrop);
+
         // Create mobile header dynamically
         const mobileHeader = document.createElement('div');
         mobileHeader.className = 'mobile-app-header no-print';
@@ -198,23 +203,30 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sidebarToggle) {
             sidebarToggle.addEventListener('click', (e) => {
                 e.stopPropagation();
-                sidebar.classList.toggle('sidebar-open');
+                const isOpen = sidebar.classList.toggle('sidebar-open');
+                backdrop.classList.toggle('active', isOpen);
             });
         }
+        
+        // Close sidebar helper
+        const closeSidebar = () => {
+            sidebar.classList.remove('sidebar-open');
+            backdrop.classList.remove('active');
+        };
+
+        backdrop.addEventListener('click', closeSidebar);
         
         // Close sidebar when clicking outside on mobile
         document.addEventListener('click', (e) => {
             if (sidebar.classList.contains('sidebar-open') && !sidebar.contains(e.target) && sidebarToggle && !sidebarToggle.contains(e.target) && !mobileHeader.contains(e.target)) {
-                sidebar.classList.remove('sidebar-open');
+                closeSidebar();
             }
         });
         
         // Close sidebar on navigation links clicked inside drawer
         const sidebarLinks = sidebar.querySelectorAll('a, button');
         sidebarLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                sidebar.classList.remove('sidebar-open');
-            });
+            link.addEventListener('click', closeSidebar);
         });
     }
 });
